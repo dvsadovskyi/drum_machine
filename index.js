@@ -26,6 +26,8 @@ function App() {
     function handleVolume(event) {
         if (power) {
             setVolume(parseInt(event.target.value))
+            const audios = document.querySelectorAll("audio")
+            audios.forEach(a => a.volume = volume / 100)
             setDisplay(volume)
         }
 
@@ -71,15 +73,15 @@ function App() {
                 "C": "Closed-HH",
             }
             const refs2 = {
-                "Q": "Heater-1",
-                "W": "Heater-1",
-                "E": "Heater-1",
-                "A": "Heater-1",
-                "S": "Heater-1",
-                "D": "Heater-1",
-                "Z": "Heater-1",
-                "X": "Heater-1",
-                "Q": "Heater-1",
+                "Q": "Chord-1",
+                "W": "Chord-2",
+                "E": "Chord-3",
+                "A": "Shaker",
+                "S": "Open-HH",
+                "D": "Closed-HH",
+                "Z": "Punchy-Kick",
+                "X": "Side-Stick",
+                "C": "Snare",
             }
             setDisplay(bank ? refs1[songKey] : refs2[songKey])
         }
@@ -130,7 +132,7 @@ function App() {
 
                     </div>
                     <div id="display">{display}</div>
-                    <input name="volume" min="0" max="100" value={volume} type="range" onChange={handleVolume} />
+                    <input step="1" min="0" max="100" value={volume} type="range" onChange={handleVolume} />
                     <div className="bank-switch">
                         <p className="bank-title">Bank</p>
                         <div onClick={handleBank} className="bank-container" style={bank ?
