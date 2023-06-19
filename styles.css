@@ -3,3 +3,22 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+html {
+  background-color: grey;
+}
+
+.swith-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 100px;
+  height: 50px;
+  background-color: black;
+  padding: 1px;
+}
+
+.switch {
+  width: 50%;
+  height: 100%;
+  background-color: blue;
+}
