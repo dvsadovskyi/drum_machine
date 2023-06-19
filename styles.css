@@ -13,6 +13,7 @@ html {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  user-select: none;
 }
 
 #drum-machine {
@@ -42,8 +43,12 @@ html {
 }
 
 .pads {
-  display: flex;
+  display: grid;
   width: 60%;
+  height: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5px;
+  padding: 10px;
 }
 
 .drum-pad {
@@ -51,9 +56,6 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20px;
-  height: 20px;
-  margin: 2px;
 }
 
 .controls {
@@ -82,5 +84,4 @@ html {
   justify-content: center;
   align-items: center;
   color: white;
-  user-select: none;
 }
