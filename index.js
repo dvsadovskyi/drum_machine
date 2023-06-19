@@ -1,13 +1,25 @@
 function App() {
 
-    const [switcher, setSwitcher] = React.useState(true);
-    const [bank, setbank] = React.useState(true);
-    function handleClick() {
-        console.log("hello")
+    const [power, setPower] = React.useState(true);
+    const [bank, setBank] = React.useState(true);
+    const [volume, setVolume] = React.useState(50);
+
+    function handleVolume(event) {
+        if (power) {
+            setVolume(parseInt(event.target.value))
+        }
     }
+
+    function handleBank() {
+        if (power) {
+            setBank(prev => !prev)
+        }
+    }
+
+
     return (
         <div id="drum-machine">
-            <div className="logo"></div>
+            <div className="logo">LOGO</div>
             <div className="control-area">
                 <div className="pads">
                     <div className="drum-pad" id={bank ? "Heater-1" : "Chord-1"}>Q
@@ -38,13 +50,29 @@ function App() {
                         <audio className="clip" src={bank ? "https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3" : "https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3"} id="C"></audio>
                     </div>
                 </div>
-                <div className="controls"></div>
+                <div className="controls">
+                    <div className="power-switch">
+                        <p className="power-title">Power</p>
+                        <div onClick={() => setPower(prev => !prev)} className="swith-container" style={power ?
+                            { "justifyContent": "flex-start" } : { "justifyContent": "flex-end" }}>
+                            <div className="power-button">{power ? "ON" : "OFF"}</div>
+                        </div>
+
+                    </div>
+                    <div id="display">{volume}</div>
+                    <input name="volume" min="0" max="100" value={volume} type="range" onChange={handleVolume} />
+                    <div className="bank-switch">
+                        <p className="bank-title">Bank</p>
+                        <div onClick={handleBank} className="bank-container" style={bank ?
+                            { "justifyContent": "flex-start" } : { "justifyContent": "flex-end" }}>
+                            <div className="bank-button">sdd</div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
 
-            <div onClick={() => setSwitcher(prev => !prev)} className="swith-container" style={switcher ?
-                { "justifyContent": "flex-start" } : { "justifyContent": "flex-end" }}>
-                <div className="switch"></div>
-            </div>
+
         </div>
 
     )

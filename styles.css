@@ -8,17 +8,79 @@ html {
   background-color: grey;
 }
 
-.swith-container {
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#drum-machine {
+  height: 50%;
+  width: 40%;
+  background-color: ghostwhite;
+  border: 5px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  height: 10%;
+  width: 100%;
+  background-color: aquamarine;
+  font-size: 14px;
+}
+
+.control-area {
+  height: 90%;
+  width: 100%;
+  display: flex;
+  background-color: antiquewhite;
+  flex-direction: row;
+}
+
+.pads {
+  display: flex;
+  width: 60%;
+}
+
+.drum-pad {
+  background-color: rgb(67, 65, 65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  margin: 2px;
+}
+
+.controls {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#display {
+  background-color: cadetblue;
+}
+.swith-container,
+.bank-container {
   display: flex;
   justify-content: flex-start;
-  width: 100px;
-  height: 50px;
   background-color: black;
   padding: 1px;
 }
 
-.switch {
-  width: 50%;
-  height: 100%;
+.power-button,
+.bank-button {
   background-color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  user-select: none;
 }
