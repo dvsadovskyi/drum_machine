@@ -67,7 +67,7 @@ html {
 #display {
   background-color: cadetblue;
 }
-.swith-container,
+.power-container,
 .bank-container {
   display: flex;
   justify-content: flex-start;

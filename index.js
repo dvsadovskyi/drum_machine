@@ -3,17 +3,37 @@ function App() {
     const [power, setPower] = React.useState(true);
     const [bank, setBank] = React.useState(true);
     const [volume, setVolume] = React.useState(50);
+    const [display, setDisplay] = React.useState("");
+
+    React.useEffect(() => {
+        function hide() {
+            setDisplay("")
+        }
+        let x = setTimeout(hide, 1000)
+        return () => {
+            clearTimeout(x)
+        }
+    }, [volume])
+
 
     function handleVolume(event) {
         if (power) {
             setVolume(parseInt(event.target.value))
+            setDisplay(volume)
         }
+
     }
 
     function handleBank() {
         if (power) {
             setBank(prev => !prev)
+            if (!bank) {
+                setDisplay("Heater kit")
+            } else {
+                setDisplay("Smooth piano kit")
+            }
         }
+
     }
 
 
@@ -53,19 +73,19 @@ function App() {
                 <div className="controls">
                     <div className="power-switch">
                         <p className="power-title">Power</p>
-                        <div onClick={() => setPower(prev => !prev)} className="swith-container" style={power ?
+                        <div onClick={() => setPower(prev => !prev)} className="power-container" style={power ?
                             { "justifyContent": "flex-start" } : { "justifyContent": "flex-end" }}>
                             <div className="power-button">{power ? "ON" : "OFF"}</div>
                         </div>
 
                     </div>
-                    <div id="display">{volume}</div>
+                    <div id="display">{display}</div>
                     <input name="volume" min="0" max="100" value={volume} type="range" onChange={handleVolume} />
                     <div className="bank-switch">
                         <p className="bank-title">Bank</p>
                         <div onClick={handleBank} className="bank-container" style={bank ?
                             { "justifyContent": "flex-start" } : { "justifyContent": "flex-end" }}>
-                            <div className="bank-button">sdd</div>
+                            <div className="bank-button">O</div>
                         </div>
 
                     </div>
