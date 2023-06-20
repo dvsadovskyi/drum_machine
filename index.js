@@ -91,7 +91,7 @@ function App() {
 
     return (
         <div id="drum-machine">
-            <div className="logo">LOGO</div>
+            <div className="logo"><p className="fcc">FCC</p><i class="fa-brands fa-free-code-camp fa-lg"></i></div>
             <div className="control-area">
                 <div className="pads">
                     <div onClick={handlePlay} className="drum-pad" id={bank ? "Heater-1" : "Chord-1"}>Q
@@ -132,7 +132,11 @@ function App() {
 
                     </div>
                     <div id="display">{display}</div>
-                    <input step="1" min="0" max="100" value={volume} type="range" onChange={handleVolume} />
+                    <div className="volume-inp">
+                        <p className="volume-title">Volume</p>
+                        <input step="1" min="0" max="100" value={volume} type="range" onChange={handleVolume} className="vol-range" />
+                    </div>
+
                     <div className="bank-switch">
                         <p className="bank-title">Bank</p>
                         <div onClick={handleBank} className="bank-container" style={bank ?
@@ -145,7 +149,7 @@ function App() {
             </div>
 
 
-        </div>
+        </div >
 
     )
 }
